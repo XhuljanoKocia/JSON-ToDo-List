@@ -23,7 +23,13 @@
         console.log(key, dataJSON.tasks[key]);
         var status = !dataJSON.tasks[key] ? " " : " checked ";
         var html =
-          "<li>" + key + ' <input type="checkbox" value="' + key + '"></li>';
+          "<li>" +
+          key +
+          ' <input type="checkbox" value="' +
+          key +
+          '" ' +
+          status +
+          "></li>";
         taskList.innerHTML += html;
       }
 
