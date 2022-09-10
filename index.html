@@ -8,11 +8,26 @@
   </head>
   <body>
     <h1>To Do List</h1>
-    <div id="output"></div>
+    <div id="output">
+      <ul id="taskList"></ul>
+    </div>
     <script type="text/javascript">
       var data =
         '{"tasks":{"Cut Grass":false,"Clean Room":false,"Go To Gym":true,"Make Dinner":false}}';
-      console.log(data);
+      var dataJSON = JSON.parse(data);
+
+      var output = document.getElementById("output");
+      var taskList = document.getElementById("taskList");
+
+      for (var key in dataJSON.tasks) {
+        console.log(key, dataJSON.tasks[key]);
+        var status = !dataJSON.tasks[key] ? " " : " checked ";
+        var html =
+          "<li>" + key + ' <input type="checkbox" value="' + key + '"></li>';
+        taskList.innerHTML += html;
+      }
+
+      console.log(dataJSON);
     </script>
   </body>
 </html>
