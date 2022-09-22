@@ -14,19 +14,17 @@
     <script type="text/javascript">
       var data =
         '[{"info":"Cut the Grass","status":false},{"info":"Clean Room","status":false},{"info":"Go to Gym","status":false},{"info":"Make Dinner","status":false}]';
-      console.log(data);
-      /*
-      var dataJSON = JSON.parse(data);
 
+      var dataJSON = JSON.parse(data);
       var output = document.getElementById("output");
       var taskList = document.getElementById("taskList");
 
-      for (var key in dataJSON.tasks) {
-        // console.log(key, dataJSON.tasks[key]);
-        var status = !dataJSON.tasks[key] ? " " : " checked ";
+      for (var key in dataJSON) {
+        console.log(key, dataJSON[key]);
+        var status = dataJSON[key].status ? " checked " : " ";
         var html =
           "<li>" +
-          key +
+          dataJSON[key].info +
           ' <input type="checkbox" value="' +
           key +
           '" ' +
@@ -34,6 +32,7 @@
           "></li>";
         taskList.innerHTML += html;
       }
+
       addEvents();
 
       function addEvents() {
@@ -48,11 +47,8 @@
       function updateJSON() {
         var key = event.target.value;
         console.log(key, event.target.checked);
-        dataJSON.tasks[key] = event.target.checked;
+        dataJSON[key].status = event.target.checked;
       }
-
-      // console.log(dataJSON);
-      */
     </script>
   </body>
 </html>
